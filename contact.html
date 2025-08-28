@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ติดต่อ - ครุศึกษา</title>
+
+  <!-- ฟอนต์ -->
+  <link href="https://fonts.googleapis.com/css2?family=K2D:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS หลัก -->
+  <link rel="stylesheet" href="mainstyle.css">
+  
+  <style>
+    body {
+      font-family: "K2D", sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    .contact-section {
+      padding: 60px 20px;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .contact-info, .contact-form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .contact-info h2,
+    .contact-form h2 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .contact-info p {
+      margin: 8px 0;
+      color: #555;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    .contact-form button {
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: #0066cc;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #004a99;
+    }
+
+    @media (max-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="container">
+      <div class="nav-con">
+        <div class="logo"> 
+          <a href="index.html"><img src="images/logoeng.png" alt="Logo" width="150"> ครุศึกษา</a>                
+        </div>
+        <ul class="menu">
+          <li><a href="index.html">หน้าหลัก</a></li>
+          <li><a href="about.html">เกี่ยวกับเรา</a></li>
+          <li><a href="system.html">ระบบสารสนเทศ</a></li>
+          <li><a href="database.html">ฐานข้อมูล</a></li>
+          <li><a href="gallery.html">ภาพกิจกรรม</a></li>
+          <li><a href="download.html">ดาวน์โหลด</a></li>
+          <li><a href="contact.html" class="active">ติดต่อ</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- เนื้อหาหน้าติดต่อ -->
+  <section class="contact-section">
+    <div class="contact-container">
+      
+      <!-- ข้อมูลการติดต่อ -->
+      <div class="contact-info">
+        <h2>ข้อมูลการติดต่อ</h2>
+        <p><strong>คณะครุศาสตร์อุตสาหกรรม</strong></p>
+        <p>มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี</p>
+        <p>39 หมู่ 1 ถนนรังสิต-นครนายก ต.คลองหก อ.ธัญบุรี จ.ปทุมธานี</p>
+        <p>โทรศัพท์: 0-2549-xxxx</p>
+        <p>อีเมล: example@rmuttt.ac.th</p>
+      </div>
+
+      <!-- ฟอร์มติดต่อ -->
+      <div class="contact-form">
+        <h2>ส่งข้อความถึงเรา</h2>
+        <form>
+          <input type="text" name="name" placeholder="ชื่อของคุณ" required>
+          <input type="email" name="email" placeholder="อีเมล" required>
+          <textarea name="message" rows="5" placeholder="ข้อความ" required></textarea>
+          <button type="submit">ส่งข้อความ</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-bottom">
+      <p>© 2025 เว็บไซต์ตัวอย่าง - ครุศึกษา RMUTT</p>
+      <p>จัดทำโดย คณะครุศาสตร์อุตสาหกรรม มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี</p>
+    </div>
+  </footer>
+</body>
+</html>

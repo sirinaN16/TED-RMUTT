@@ -1,0 +1,563 @@
+        /* รีเซ็ตพื้นฐาน */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ใช้ฟอนต์ K2D ทั้งเว็บ */
+            body, h1, h2, h3, h4, h5, h6, p, a, li, button {
+            font-family: 'K2D', sans-serif;
+        }
+
+        body {
+            font-family: 'K2D', sans-serif;
+            background-color: #ffffff;
+            color: #000;
+            padding-top: 80px; /* ให้มีช่องว่างเท่าความสูงของ header */
+            font-family: 'K2D', sans-serif; /*ทุก element จะสืบทอดฟอนต์นี้โดยอัตโนมัติ K2D*/
+        }
+
+       .container {
+            max-width: 1800px; /* เปลี่ยนหรือลบถ้าอยากเต็มหน้าจอ */
+            margin: 0 auto;
+        }
+
+        /* Navbar ส่วนหัว (HEADER) */
+        nav {
+            background-color: #ffca39d0; /* สีบล็อกส่วนหัว #e6c0ffd0 สีเดิมม่วงอ่อน */
+            padding: 0.5rem 1rem;
+            background-color: #ffca39d0;
+            position: fixed;     /* ทำให้ยึดติดด้านบน */
+            top: 0;              /* ติดบนสุด */
+            left: 0;
+            width: 100%;         /* กินเต็มจอ */
+            z-index: 1000;       /* อยู่บนสุด ไม่โดนเนื้อหาทับ */
+            transition: all 0.3s ease;
+            
+            }
+        
+        /* เอฟเฟกต์เมื่อ scroll ส่วนหัว (HEADER)*/
+        nav.scrolled {
+            padding: 0.5rem 0.5rem; /* หดเล็กลง */
+            background-color: #ffca39; /* สีชัดขึ้น */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* เพิ่มเงา */
+        }
+
+
+        nav .logo a {
+        text-decoration: none;
+        color: #000;
+        font-weight: 600;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        }
+
+        .nav-con {
+            display: flex;
+            justify-content: space-between; /* โลโก้ซ้าย เมนูขวา */
+            align-items: center;
+        }
+        
+        .logo a { /* โลโก้ */
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #000; /*สีฟ้อนคุรุศึกษา*/
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .logo img {
+            height: 50px; /* ปรับความสูงโลโก้ */
+            width: auto;
+            margin-right: 10px; /* ระยะห่างระหว่างรูปกับข้อความ */
+        }
+
+        /* เมนู */
+        .menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .menu li a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #000000; /*สีฟ้อนรายการเมนู*/
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .menu li a:hover {
+            color: #484745; /* สีฟ้อนเมนูเมื่อเลือก เดิม #7a2cbf*/
+        }
+
+        /* Main content */
+        .maincontent {
+            background-color: #ffffff; /*สีพื้นหลังส่วนที่ 2 */
+            padding: 2rem 0;
+        }
+
+        .maincontent-con {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .maincontent-info {
+            flex: 1;
+        }
+
+        .maincontent-info h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .maincontent-info p {
+            margin: 1rem 0;
+            line-height: 1.6;
+        }
+
+        .maincontent-info .maincontent-btn {
+            display: inline-block;
+            background-color: #64646488; /* สีกล่องข้อความ */
+            color: #ffffff; /* สีอักษร */
+            padding: 0.5rem 0.5rem; /*ขนาดของกล่อง*/
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .maincontent-info .maincontent-btn:hover {
+            background-color: #f0aa45; /* คลิกแล้วเปลี่ยนสี */
+        }
+
+        .maincontent-img {
+            flex: 1;
+            text-align: center;
+        }
+
+        .maincontent-img img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        
+        /* แว่นขยาย */
+        .menu li a i { 
+        font-size: 1.2rem;
+        color: #000000;
+        transition: color 0.3s ease;
+        }
+        
+        /*เมนูเกี่ยวกับ*/
+        .menu li a.active {
+        color: #20215c;
+        font-weight: bold;
+        border-bottom: 2px solid #20215c;
+        }
+
+        .menu li a i:hover {
+        color: r#bd9119d0;  /*#8736ceff  #ffca39d0*/
+        }
+
+        .maincontent h1 {
+        margin-bottom: 1rem; /* ระยะห่างจากข้อความ */
+        }
+        
+
+        /* กล่องค้นหาแบบ Overlay */
+        .search-container {
+        position: relative;
+        }
+
+        .search-container input {
+        display: none;
+        padding: 5px 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        margin-left: 5px;
+        }
+
+        /* แสดงช่องค้นหาเมื่อ active */
+        .search-container.active input {
+        display: inline-block;
+        }
+
+        /* เส้นแบ่งส่วน */
+        .line {
+        border: none;
+        height: 3px; /* ความหนา */
+        background-color: #ffca39d0;  /* สีของเส้นแบ่งส่วน */
+        margin-top: 5px;
+        margin-bottom: 20px;  /* ระยะห่าง ข้อความกับเส้น */
+        width: 100%; 
+        }
+
+        .underline-full {
+        position: relative;
+        font-size: 2rem;   /*ขนาดของอักษร*/
+        padding-bottom: 10px;  /* ระยะห่างข้อความกับเส้น */
+        text-align: center;  
+        color: #000000;        /* ข้อความ */
+        font-weight: 1000;       /* ปรับความหนาของข้อความ */
+        line-height: 2;          /* ระยะห่างระหว่างบรรทัด */
+        }
+
+        /* หัวข้อข่าวประชาสัมพันธ์ */
+        .content-con{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            columns: 1rem;
+            justify-items: center; /* ให้กล่องในแต่ละคอลัมน์อยู่กลาง */
+        }
+
+        .content-item img {
+        width: 100%;        /* กินเต็มความกว้างของกล่อง */
+        height: 200px;      /* กำหนดความสูงคงที่ */
+        object-fit: cover;  /* ครอบรูปให้พอดี ไม่บิดเบี้ยว */
+        border-radius: 10px; /* (ถ้าอยากให้มุมโค้ง) */
+        display: block;     /* ป้องกันมีช่องว่างด้านล่าง */
+        }
+
+        .content {
+        padding-bottom: 3rem;  /* ระยะห่างด้านล่าง */
+        margin-bottom: 3rem;   /* เว้นห่างออกจากส่วนถัดไป */
+        }
+
+        .footer {
+        background-color: #20215c;
+        color: #fff;
+        padding: 2rem 1rem 1rem;
+        font-family: "K2D", sans-serif;
+        }
+
+        .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: auto;
+        }
+
+        .footer h3 {
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        border-bottom: 2px solid #fff;
+        display: inline-block;
+        padding-bottom: 0.3rem;
+        }
+
+        .footer p,
+        .footer a {
+        font-size: 0.95rem;
+        color: #ddd;
+        text-decoration: none;
+        }
+
+        .footer a:hover {
+        color: #fff;
+        text-decoration: underline;
+        }
+            
+        .footer-social {
+        margin-top: 1rem;
+        }
+
+        .footer-social a {
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 1.3rem;
+        color: #ddd;
+        transition: 0.3s;
+        }
+
+        .footer-social a:hover {
+        color: #1e90ff; /* เปลี่ยนสีตอน hover */
+        }
+
+        .footer-bottom {
+        text-align: center;
+        margin-top: 2rem;
+        font-size: 0.85rem;
+        border-top: 1px solid #444;
+        padding-top: 1rem;
+        }
+
+        /* ภาพกิจกรรม */
+        .activities-videos-con {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2 คอลัมน์ */
+        gap: 2rem;
+        align-items: start;
+        }
+
+        /* 📸 Swiper กิจกรรม */
+        .activities .swiper {
+        width: 100%;
+        }
+
+        .activities .swiper-slide {
+        text-align: center;
+        }
+
+        .activities .swiper-slide img {
+        width: 100%;
+        aspect-ratio: 16/9;  /* ✅ สัดส่วนพอดี */
+        object-fit: cover;   /* ✅ ไม่บิดรูป */
+        border-radius: 10px;
+        margin-bottom: 0.5rem;
+        }
+
+        /* 🎥 วิดีโอ */
+        .videos .video-item iframe {
+        width: 100%;
+        aspect-ratio: 16/9; /* ✅ รักษาสัดส่วนวิดีโอ */
+        border-radius: 10px;
+        }
+
+        /* 📱 Responsive (มือถือแสดงแนวตั้งแทน) */
+        @media (max-width: 768px) {
+        .activities-videos-con {
+        grid-template-columns: 1fr; /* เหลือ 1 คอลัมน์ */
+        }
+        }
+
+        /* Dashboard Card */
+        .dashboard {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        }
+
+        .dashboard-card {
+        flex: 1 1 200px;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 1.5rem;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+        }
+
+        .dashboard-card:hover {
+        transform: translateY(-5px);
+        }
+
+        .dashboard-card h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+        }
+
+        .dashboard-card p {
+        font-size: 2rem;
+        font-weight: 600;
+        margin: 0.5rem 0;
+        color: #ffca39;
+        }
+
+        .dashboard-card i {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        color: #dbab0a;
+        }
+
+        .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        }
+        .gallery-grid img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .gallery-grid img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Flex header สำหรับ title + search */
+.header-flex {
+  display: flex;
+  justify-content: space-between; /* หัวข้อซ้าย, search ขวา */
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px; /* เพิ่มระยะระหว่างหัวข้อกับ search */
+  margin-bottom: 10px;
+}
+
+/* Title */
+.header-flex h1 {
+  font-size: 28px;
+  margin: 0;
+}
+
+/* Search Box */
+.search-box input {
+  width: 220px; /* ปรับเล็กลง */
+  max-width: 100%;
+  padding: 8px 15px 8px 35px; /* เผื่อ icon */
+  font-size: 15px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  background: url('https://cdn-icons-png.flaticon.com/512/622/622669.png') no-repeat 10px center;
+  background-size: 18px;
+}
+
+.search-box input:focus {
+  border-color: #4A90E2;
+  box-shadow: 0 4px 10px rgba(74,144,226,0.3);
+  outline: none;
+}
+
+/* ข้อความอธิบาย */
+.download-desc {
+  margin-bottom: 25px;
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .header-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .search-box input {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+
+    
+        
+
+        /* Responsive */
+        @media(max-width:768px){
+        .dashboard {
+            flex-direction: column;
+        }
+        }
+        
+        /* Responsive มือถือ */
+        @media (max-width: 768px) {
+            .nav-con {
+                flex-direction: column;
+                align-items: flex-start; /* โลโก้ยังชิดซ้าย */
+            }
+
+            .menu {
+                width: 100%;
+                justify-content: flex-start; /* เมนูชิดซ้าย */
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                margin-top: 0.5rem;
+            }
+
+            .maincontent-con {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+        <!-- Navbar -->
+            <nav>
+            <div class="container">
+                <div class="nav-con">
+                <!-- โลโก้ซ้าย -->
+                <div class="logo">
+                    <a href="#"><img src="images/logoeng.png" alt="Logo">คุรุศึกษา</a>
+                </div>
+
+                <!-- เมนูขวา -->
+                <ul class="menu">
+                    <li><a href="index.html">หน้าหลัก</a></li>
+                    <li><a href="about.html">เกี่ยวกับเรา</a></li>
+                    <li><a href="system.html">ระบบสารสนเทศ</a></li>
+                    <li><a href="database.html">ฐานข้อมูล</a></li>
+                    <li><a href="gallery.html">ภาพกิจกรรม</a></li>
+                    <li><a href="download.html">ดาวน์โหลด</a></li>
+                    <li><a href="contact.html">ติดต่อ</a></li>
+                </ul>
+                </div>
+            </div>
+            </nav>
+
+    <!-- Main Content -->
+    <section class="maincontent">
+        <div class="container">
+            <div class="maincontent-con">
+                <div class="maincontent-info">
+                 
+                    <h3>เกี่ยวกับเรา</h3>
+                    <p>นี่คือตัวอย่างข้อความเกี่ยวกับเว็บไซต์ของคุณ คุณสามารถแก้ไขข้อความนี้ให้ตรงกับเนื้อหาจริงได้</p>
+                    <a href="#" class="maincontent-btn">อ่านเพิ่มเติม</a>
+                </div>
+                <div class="maincontent-img">
+                    <img src="images/building.jpg" alt="ตัวอย่างรูปภาพ">
+                </div>
+            </div>
+        </div>
+    </section>
+
+            
+        #backToTop {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 55px;
+        height: 55px;
+        font-size: 24px;
+        background: #ffca39;
+        color: #000;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        display: none;  /* เริ่มแรกซ่อน */
+        transition: all 0.3s ease-in-out;
+        z-index: 9999;
+
+        /* จัดข้อความให้อยู่ตรงกลาง */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
+
+        #backToTop:hover {
+        background: #dbab0a;
+        transform: scale(1.1);
+        }
+
+        /* ===================== Responsive ===================== */
+        @media(max-width: 768px){
+        .menu {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .content-con {
+            flex-direction: column;
+        }
+        }
+
+    
+</body>
+</html>

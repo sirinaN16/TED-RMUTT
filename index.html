@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ตัวอย่างเว็บ ครุศึกษา</title>
+    <link rel="stylesheet" href="mainstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- โหลดฟอนต์ K2D จาก Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=K2D:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>กิจกรรม + วิดีโอ</title>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+
+        /* รีเซ็ตพื้นฐาน */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'K2D', sans-serif; /* ใช้ K2D ทั้งเว็บ */
+            color: #000000ff;
+            background-color: #ffffffff; /*สีพื้นหลังส่วนที่ 3*/
+        }
+
+        .container {
+            max-width: 1850px;
+            margin: 0 auto;
+        }
+
+        nav {
+            padding: 0.5rem 1rem;
+            background-color: #ffca39d0; /*#e8ccf5*/
+        }
+
+        .nav-con {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* โลโก้ */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #000000ff; /*สีฟ้อนlogo*/
+            font-size: 1.5rem;
+            font-weight: 600;
+            
+        }
+
+        /* เมนู */
+        .menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .menu li a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #000000ff; /* สีอักษร */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .menu li a:hover {
+            color: #8a898a; /* สีอักษรเมื่อคลิก */
+        }
+
+        /* Main Content */
+        .maincontent {
+            background-color: #ffffffff; /* สีพื้นส่วน 2 */
+            padding: 2rem 0;
+        }
+
+        .maincontent-con {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .maincontent-info {
+            flex: 1;
+        }
+
+        .maincontent-info h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .maincontent-info p {
+            margin: 1rem 0;
+            line-height: 1.6;
+        }
+
+        .maincontent-info .maincontent-btn {
+            display: inline-block;
+            background-color: #2c2c2c79;
+            color: #000000ff;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .maincontent-info .maincontent-btn:hover {
+            background-color: #dbab0aff; /*กล่องอ่านเพิ่มเติม คลิกแล้วเปลี่ยนสี */
+        }
+
+        .maincontent-img {
+            flex: 1;
+            text-align: center;
+        }
+
+        .maincontent-img img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Responsive (มือถือ) */
+        @media (max-width: 768px) {
+            .maincontent-con {
+                flex-direction: column;
+            }
+
+            .nav-con {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+    </head>
+    <body>
+
+    <!-- Navbar -->
+        <nav>
+        <div class="container">
+            <div class="nav-con">
+                <div class="logo"> 
+                <a href="#"><img src="images/logoeng.png" alt="Logo" width="150">ครุศึกษา</a>                
+                </div>
+               
+                <ul class="menu">
+                <li><a href="index.html">หน้าหลัก</a></li>
+                <li><a href="about.html"">เกี่ยวกับเรา</a></li>
+                <li><a href="system.html">ระบบสารสนเทศ</a></li>
+                <li><a href="database.html">ฐานข้อมูล</a></li>
+                <li><a href="gallery.html">ภาพกิจกรรม</a></li>
+                <li><a href="download.html">ดาวน์โหลด</a></li>
+                <li><a href="contact.html">ติดต่อ</a></li>
+               
+                <li class="search-container">
+                    <a href="#" id="search-toggle"><i class="fas fa-search"></i></a>
+                    <input type="text" id="search-input" placeholder="ค้นหา...">
+                </li>
+                </ul>
+         </div>
+        </nav>
+
+        <script>
+            const searchToggle = document.getElementById("search-toggle");
+            const searchContainer = document.querySelector(".search-container");
+
+            searchToggle.addEventListener("click", (e) => {
+            e.preventDefault();
+            searchContainer.classList.toggle("active");
+            if (searchContainer.classList.contains("active")) {
+            document.getElementById("search-input").focus();
+            }
+            });
+        </script>
+
+    <!-- Main Content -->
+        <section class="maincontent">
+        <div class="container">
+            <div class="maincontent-con">
+                <div class="maincontent-info">
+                    <h3>เกี่ยวกับเรา</h3>
+                    <p>นี่คือตัวอย่างข้อความเกี่ยวกับเว็บไซต์ของคุณ คุณสามารถแก้ไขข้อความนี้ให้ตรงกับเนื้อหาจริงได้</p>
+                    <a href="#" class="maincontent-btn">อ่านเพิ่มเติม</a>
+                </div>
+
+                <!-- ส่วนที่ 2 -->
+                <div class="maincontent-img">
+                   <!-- <img src="images/building.jpg" alt="คำอธิบายรูป" > รูปอันเดิม -->
+
+                    /* เพิ่มข้อความได้ */
+                <div class="maincontent-img">
+                    <img id="slideshow" src="images/building.jpg" alt="คำอธิบายรูป">
+                    /* เพิ่มข้อความได้ */
+                </div>
+
+                <style>
+                .maincontent-img img {
+                width: 600%;       /* ให้กินเต็มความกว้างของ parent */
+                height: 600px;     /* กำหนดความสูงรูป */
+                object-fit: cover; /* ทำให้รูปพอดีกับกรอบโดยไม่บิดสัดส่วน */
+                border-radius: 5px; /* (เลือกได้) ทำขอบโค้งนิดหน่อย */
+                }
+                </style>
+
+                <script>
+                let images = [
+                "images/building.jpg",
+                "images/1.jpg",
+                "images/4.jpg",
+                "images/5.jpg",
+                ];
+
+                let index = 0;
+
+                setInterval(() => {
+                index = (index + 1) % images.length;
+                document.getElementById("slideshow").src = images[index];
+                }, 3000);
+                </script>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+                <div class="container-title">
+                    <h1 class="underline-full"> ข่าวประชาสัมพันธ์ </h1>
+                    <hr class="line">
+                </div>
+                
+                <!-- รูปย่อย ข่าวปชสพ.-->
+                <div class="content-con">
+                    <div class="content-item">
+                    <img src="images/สอบ.jpg" alt="คำอธิบายรูป" > 
+                    <h3>ระบบสารสนเทศ</h3>
+                    <p>ข้อความตัวอย่าง</p>
+                    <a href="#" class="content-btn"> ดูรายงาน </a>
+                    </div>
+                
+                    <div class="content-item">
+                    <img src="images/ค่ายict.jpg" alt="คำอธิบายรูป" > 
+                    <h3>ระบบสารสนเทศ</h3>
+                    <p>ข้อความตัวอย่าง</p>
+                    <a href="#" class="content-btn"> ดูรายงาน </a>
+                    </div>
+
+                    <div class="content-item">
+                    <img src="images/ข่าว1.jpg" alt="คำอธิบายรูป" > 
+                    <h3>ระบบสารสนเทศ</h3>
+                    <p>ข้อความตัวอย่าง</p>
+                    <a href="#" class="content-btn"> ดูรายงาน </a>
+                    </div>
+
+                    <div class="content-item">
+                    <img src="images/ข่าว2.jpg" alt="คำอธิบายรูป" > 
+                    <h3>ระบบสารสนเทศ</h3>
+                    <p>ข้อความตัวอย่าง</p>
+                    <a href="#" class="content-btn"> ดูรายงาน </a>
+                    
+                    </div>
+    </section>
+
+    <!-- ====== ส่วนภาพกิจกรรม ====== -->
+        <section class="activities-videos">
+        <div class="container">
+        <div class="activities-videos-con">
+      
+    <!-- 📸 ภาพกิจกรรม -->
+        <div class="activities">
+        <div class="container-title">
+            <h1 class="underline-full"> ภาพกิจกรรม </h1>
+            <hr class="line">
+        </div>
+
+    <!-- Swiper -->
+        <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+        <div class="swiper-slide">
+              <img src="images/4.jpg" alt="กิจกรรม 1">
+              <h3>กิจกรรมที่ 1</h3>
+            </div>
+            <div class="swiper-slide">
+              <img src="images/3.jpg" alt="กิจกรรม 2">
+              <h3>กิจกรรมที่ 2</h3>
+            </div>
+            <div class="swiper-slide">
+              <img src="images/1.jpg" alt="กิจกรรม 3">
+              <h3>กิจกรรมที่ 3</h3>
+            </div>
+          </div>
+
+          <!-- ปุ่มควบคุม -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
+
+      <!-- 🎥 วิดีโอ YouTube -->
+      <div class="videos">
+        <div class="container-title">
+          <h1 class="underline-full"> วิดีโอกิจกรรม </h1>
+          <hr class="line">
+        </div>
+
+        <div class="video-item">
+          <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4"
+                  title="YouTube video"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+                
+
+
+
+
+
+</section>
+
+
+
+</body>
+
+
+
+<!-- โหลดไอคอน Font Awesome (วางไว้ใน <head>) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-about">
+            <h3>เกี่ยวกับเรา</h3>
+            <p>ครุศึกษา</p>
+            <p>มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี</p>
+            <p>เลขที่ 39 หมู่ 1 ถ.รังสิตนครนายก ต.คลองหก อ.คลองหลวง จ.ปทุมธานี 12120  </p>
+        </div>
+
+        <div class="footer-links">
+            <h3>ลิงก์ที่น่าสนใจ</h3>
+            <ul>
+                <li><a href="#">ระบบสารสนเทศ</a></li>
+                <li><a href="#">ฐานข้อมูล</a></li>
+                <li><a href="#">ดาวน์โหลด</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact">
+            <h3>ติดต่อเรา</h3>
+            <p>อีเมล: xxxxx@rmutt.ac.th </p>
+            <p>โทร: 02-xxx-xxxx</p>
+
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-line"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 เว็บไซต์ตัวอย่าง - ครุศึกษา RMUTT
+            <p>จัดทำโดย คณะครุศาสตร์อุตสาหกรรม มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี
+            </p>
+        </div>
+    </footer>
+
+
+<!-- ปุ่ม Back to Top -->
+                <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
+                <style>
+                #backToTop {
+                all: unset; /* ล้างค่า default ของปุ่ม */
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                width: 50px;
+                height: 50px;
+                background: #ffca39;
+                color: #000;
+                font-size: 28px;
+                font-weight: bold;
+                cursor: pointer;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+                display: none;
+                transition: all 0.3s ease-in-out;
+                z-index: 9999;
+
+                /* จัดลูกศรให้อยู่กลาง */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+
+            #backToTop:hover {
+                background: #dbab0a;
+                transform: scale(1.1);
+            }
+            </style>
+
+            <script>
+            const btn = document.getElementById("backToTop");
+            window.addEventListener("scroll", () => {
+                btn.style.display = window.scrollY > 300 ? "flex" : "none";
+            });
+            btn.addEventListener("click", () => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+            </script>
+
+
+
+
+</html>

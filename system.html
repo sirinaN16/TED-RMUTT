@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ระบบสารสนเทศ - ครุศึกษา</title>
+  
+  <!-- ฟอนต์ K2D -->
+  <link href="https://fonts.googleapis.com/css2?family=K2D:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS หลัก -->
+  <link rel="stylesheet" href="mainstyle.css">
+
+  <style>
+    /* ใช้ฟอนต์ K2D ทั้งเว็บ */
+    body, h1, h2, h3, p, a, li, button {
+      font-family: 'K2D', sans-serif;
+    }
+
+    /* Section card */
+    .content-con {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .content-item {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 1rem;
+      flex: 1 1 300px; /* responsive */
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .content-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .content-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .content-item h3 {
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    .content-item p {
+      margin-bottom: 1rem;
+      color: #555;
+    }
+
+    .content-btn {
+      display: inline-block;
+      padding: 0.8rem 1.2rem;
+      background-color: #ffca39;
+      color: #000;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .content-btn:hover {
+      background-color: #dbab0a;
+      color: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .content-con {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="container">
+      <div class="nav-con">
+        <div class="logo"> 
+          <a href="index.html"><img src="images/logoeng.png" alt="Logo" width="150"> ครุศึกษา</a>                
+        </div>
+        <ul class="menu">
+          <li><a href="index.html">หน้าหลัก</a></li>
+          <li><a href="about.html">เกี่ยวกับเรา</a></li>
+          <li><a href="system.html" class="active">ระบบสารสนเทศ</a></li>
+          <li><a href="database.html">ฐานข้อมูล</a></li>
+          <li><a href="gallery.html">ภาพกิจกรรม</a></li>
+          <li><a href="download.html">ดาวน์โหลด</a></li>
+          <li><a href="contact.html">ติดต่อ</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- เนื้อหาหลัก -->
+  <section class="maincontent">
+    <div class="container">
+      <h1>ระบบสารสนเทศของคณะ</h1>
+      <p>รวมระบบจัดการต่าง ๆ ของคณะครุศาสตร์อุตสาหกรรม เช่น ระบบทะเบียนนักศึกษา ระบบฐานข้อมูลวิชา และอื่น ๆ</p>
+
+      <!-- Card ระบบสารสนเทศ -->
+      <div class="content-con">
+        <div class="content-item">
+          <img src="images/1.jpg" alt="ระบบทะเบียนนักศึกษา">
+          <h3>ระบบทะเบียนนักศึกษา</h3>
+          <p>จัดการข้อมูลนักศึกษา ตรวจสอบสถานะ และรายงานผล</p>
+          <a href="#" class="content-btn">เข้าระบบ</a>
+        </div>
+
+        <div class="content-item">
+          <img src="images/3.jpg" alt="ระบบฐานข้อมูลวิชา">
+          <h3>ระบบฐานข้อมูลวิชา</h3>
+          <p>จัดการรายวิชา ตารางเรียน และข้อมูลอาจารย์</p>
+          <a href="#" class="content-btn">เข้าระบบ</a>
+        </div>
+
+        <div class="content-item">
+          <img src="images/4.jpg" alt="ระบบบันทึกกิจกรรม">
+          <h3>ระบบบันทึกกิจกรรม</h3>
+          <p>บันทึกและติดตามกิจกรรมต่าง ๆ ของคณะได้อย่างสะดวก</p>
+          <a href="#" class="content-btn">เข้าระบบ</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+   <div class="footer-bottom">
+            <p>© 2025 เว็บไซต์ตัวอย่าง - ครุศึกษา RMUTT
+            <p>จัดทำโดย คณะครุศาสตร์อุตสาหกรรม มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
